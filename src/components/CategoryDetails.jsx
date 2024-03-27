@@ -36,7 +36,7 @@ function CategoryDetails() {
                     (<div className='info-container'>
                         {
                             meals?.map((item) => (
-                                <Link to={`${item?.strMeal}`} className='info-card' key={item?.idMeal}>
+                                <Link to={`${item?.idMeal}`} className='info-card' key={item?.idMeal}>
                                     <img
                                         src={item?.strMealThumb}
                                         alt='category-icon'
