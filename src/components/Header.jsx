@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import logo from '../images/logo.png';
 
 export default function Header({ children }) {
+    const { cartItems } = useSelector(state => state.eshop);
+    const totalQuantity = Object.values(cartItems)?.reduce((acc, curr) => acc + curr.quantity, 0);
+    console.log(totalQuantity, 'totalQuantity');
+
     return (
         <div className="header">
             <Link to='/'>
@@ -13,7 +18,10 @@ export default function Header({ children }) {
 
             </Link>
             <div className="nav-menus">
-                <Link to="/cart">Cart</Link>
+                <Link to="/cart">
+                    Cart
+                    {totalQuantity ? <span className="badge">{totalQuantity}</span> : null}
+                </Link>
                 <Link to="/">Settings</Link>
             </div>
         </div>
