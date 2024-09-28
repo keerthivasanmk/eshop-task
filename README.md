@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Eshop app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Eshop app built using [React.js](https://react.dev/), and deployed on [Vercel](https://vercel.com/). It is a simple Ecommerce app with Cart and Order options. 
+
+## Live Demo
+
+You can view the live app here: [Eshop app Live](https://eshop-eta-roan.vercel.app/)
 
 ## Available Scripts
 
