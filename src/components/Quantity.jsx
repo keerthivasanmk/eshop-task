@@ -1,6 +1,5 @@
 // Dependencies
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // store
 import { setCartItems } from '../eshopSlice';

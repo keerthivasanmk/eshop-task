@@ -1,16 +1,26 @@
 // Dependencies
-import { useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from "react-router-dom";
 
 // components
 import Quantity from '../components/Quantity'
 
+// store
+import { setOrders } from '../eshopSlice';
+
 function CategoryDetails() {
     const { cartItems } = useSelector(state => state.eshop);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const cartItemKeys = Object.keys(cartItems);
-
+  
     // Total price of all products in the cart (quantity * price_of_the_quantity)
     const total = cartItemKeys.reduce((accumulator, currentValue) => accumulator + cartItems?.[`${currentValue}`]?.quantity * parseInt(currentValue), 0);
+
+    const placeOrder = () => {
+        dispatch(setOrders(cartItems));
+        navigate("/orders?order=success");
+    }
 
     return (
         <div>
@@ -60,9 +70,9 @@ function CategoryDetails() {
                                         <div className='total value'>Total = {total}</div>
                                     </div>
                                 </div>
-                                <Link to='/orders' className='button-primary'>
+                                <div className='button-primary' onClick={placeOrder}>
                                     Place Order
-                                </Link>
+                                </div>
                             </div>
                         </>
                 }

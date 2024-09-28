@@ -36,6 +36,7 @@ main {
     gap: 30px;
     font-weight: bold;
   }
+
   .badge {
     position: absolute;
     font-size: 10px;
@@ -225,6 +226,7 @@ main {
   border: 2px solid #C8C8C8;
   border-radius: 4px;
   width: 80%;
+  margin-bottom: 20px;
 
   .item-row:not(:last-child) {
     border-bottom: 2px solid #C8C8C8;

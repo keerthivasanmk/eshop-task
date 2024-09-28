@@ -5,7 +5,6 @@ import logo from '../images/logo.png';
 export default function Header({ children }) {
     const { cartItems } = useSelector(state => state.eshop);
     const totalQuantity = Object.values(cartItems)?.reduce((acc, curr) => acc + curr.quantity, 0);
-    console.log(totalQuantity, 'totalQuantity');
 
     return (
         <div className="header">
@@ -22,7 +21,7 @@ export default function Header({ children }) {
                     Cart
                     {totalQuantity ? <span className="badge">{totalQuantity}</span> : null}
                 </Link>
-                <Link to="/">Settings</Link>
+                <Link to="/orders">Orders</Link>
             </div>
         </div>
     )

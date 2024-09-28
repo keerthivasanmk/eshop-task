@@ -4,7 +4,8 @@ const initialState = {
     categories: [],
     meals: [],
     menuItemDetails: [],
-    cartItems: {}
+    cartItems: {},
+    orders: []
 }
 
 export const eshopSlice = createSlice({
@@ -22,9 +23,15 @@ export const eshopSlice = createSlice({
         },
         setCartItems: (state, action) => {
             state.cartItems = {...state.cartItems, ...action.payload}
+        },
+        emptyCart: (state) => {
+            state.cartItems = {}
+        },
+        setOrders: (state, action) => {
+            state.orders = [...state.orders, action.payload]
         }
     }
 })
 
-export const { setCategories, setMeals, setMenuItemDetail, setCartItems } = eshopSlice.actions;
+export const { setCategories, setMeals, setMenuItemDetail, setCartItems, emptyCart, setOrders } = eshopSlice.actions;
 export default eshopSlice.reducer;
